@@ -1038,6 +1038,19 @@ modbus:
         scale: 0.1
         scan_interval: 600
 
+      - name: CO2 Reduction
+        unique_id: sg_co2-reduction
+        slave: !secret sungrow_modbus_slave
+        address: 13014 # reg 13015
+        input_type: input
+        data_type: uint32
+        swap: word
+        precision: 1
+        unit_of_measurement: kg
+        state_class: total_increasing
+        scale: 0.1
+        scan_interval: 600
+
       - name: Total exported energy from PV
         unique_id: sg_total_exported_energy_from_pv
         device_address: !secret sungrow_modbus_slave
