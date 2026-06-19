@@ -1,5 +1,5 @@
 # WARNING: Automatically generated file! Do not modify in the repository.
-# Release date 2026-04-27
+# Release date 2026-06-19
 #
 # INSTALLATION GUIDE: https://github.com/mkaiser/Sungrow-SHx-Inverter-Modbus-Home-Assistant/blob/main/doc/installation.md
 #
@@ -1354,12 +1354,14 @@ modbus:
         scan_interval: *scan_interval_fast
 
       # undocumented sensor (reverse engineered by some guys of photovoltaikforum.com and forum.iobroker.net )
+      # not available on SHxRS as per https://github.com/mkaiser/Sungrow-SHx-Inverter-Modbus-Home-Assistant/issues/743
       - name: Battery charging start power inv 2
         unique_id: sg_battery_charging_start_power_inv_2
         device_address: !secret sungrow_modbus_device_address_inv_2
         address: &sg_reg_battery_charging_start_power 33148 # reg 33149
         input_type: holding
         data_type: uint16
+        nan_value: 0xFFFF
         unit_of_measurement: W
         device_class: power
         state_class: measurement
@@ -1367,12 +1369,14 @@ modbus:
         scan_interval: *scan_interval_fast
 
       # undocumented sensor (reverse engineered by some guys of photovoltaikforum.com and forum.iobroker.net )
+      # not available on SHxRS as per https://github.com/mkaiser/Sungrow-SHx-Inverter-Modbus-Home-Assistant/issues/743
       - name: Battery discharging start power inv 2
         unique_id: sg_battery_discharging_start_power_inv_2
         device_address: !secret sungrow_modbus_device_address_inv_2
         address: &sg_reg_battery_discharging_start_power 33149 # reg 33150
         input_type: holding
         data_type: uint16
+        nan_value: 0xFFFF
         precision: 0
         unit_of_measurement: W
         device_class: power
